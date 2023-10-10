@@ -1,0 +1,44 @@
+<BoxLayout>:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+    
+    Label:
+        text: 'Pizza do Papa'
+    
+    TextInput:
+        hint_text: 'Digite seu nome'
+    
+    Spinner:
+        text: 'Escolha um Sabor'
+        values: 'Quatro queijos', 'Mussarela', 'Portuguesa', 'Calabresa', 'Frango catupiry', 'Crocante'
+    
+    Spinner:
+        text: 'Esolha o tamanho'
+        values: 'Broto', 'Média', 'Grande', 'Gigante'
+    
+    Spinner:
+        text: 'Escolha o tipo de pagamento'
+        values: 'À vista (espécie)', 'À vista (pix)', 'À vista (cartão de crédito)', 'Parcelado 2x no cartão de crédito'
+    
+    Button:
+        text: 'Calcular'
+        size_hint_y: None
+        height: 40
+        on_press: app.calcular_total()
+    
+    Label:
+        text: ''
+        halign: 'center'
+    
+    Button:
+        text: 'Limpar Campos'
+        size_hint_y: None
+        height: 40
+        on_press: app.limpar_campos()
+    
+    Button:
+        text: 'Sair'
+        size_hint_y: None
+        height: 40
+        on_press: app.stop()
