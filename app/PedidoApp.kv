@@ -1,0 +1,74 @@
+<PizzaPapaApp>
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 100
+        Label:
+            text: 'Pizza do Papa'
+            markup: True
+        TextInput:
+            id: nome_cliente
+            hint_text: 'Digite seu nome'
+        
+        Spinner:
+            id: opcoes_sabores
+            text: 'Escolha um Sabor'
+            values: 'Quatro queijos', 'Mussarela', 'Portuguesa', 'Calabresa', 'Frango catupiry', 'Crocante'
+        
+        Spinner:
+            id: opcoes_tamanho
+            text: 'Escolha o tamanho'
+            values: 'Broto', 'Média', 'Grande', 'Gigante'
+        
+        GridLayout:
+            orientation: 'vertical'
+            cols: 4
+            padding: 10
+            spacing: 10
+            Label:
+                text: 'Escolha o tipo de pagamento'
+            CheckBox:
+                id: pagamento_a_vista_esp
+                group: 'pagamento'
+                active: False
+                on_active: root.on_checkbox_active(self, 'À vista (espécie)')
+
+            CheckBox:
+                id: pagamento_a_vista_pix
+                group: 'pagamento'
+                active: False
+                on_active: root.on_checkbox_active(self, 'À vista (pix)')
+
+            CheckBox:
+                id: pagamento_a_vista_cartao
+                group: 'pagamento'
+                active: False
+                on_active: root.on_checkbox_active(self, 'À vista (cartão de crédito)')
+
+            CheckBox:
+                id: pagamento_parcelado
+                group: 'pagamento'
+                active: False
+                on_active: root.on_checkbox_active(self, 'Parcelado 2x cartão de crédito')
+        
+        Button:
+            text: 'Calcular'
+            size_hint_y: None
+            height: 40
+            on_press: root.calcular_total()
+
+        Label:
+            text: ''
+            halign: 'center'
+        
+        Button:
+            text: 'Limpar Campos'
+            size_hint_y: None
+            height: 40
+            on_press: root.limpar_campos()
+        
+        Button:
+            text: 'Sair'
+            size_hint_y: None
+            height: 40
+            on_press: root.parar_app()
